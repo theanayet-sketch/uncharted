@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Login — UNCHARTED</title>
+<link rel="icon" href="../assets/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+  <div class="login-shell">
+    <img src="../assets/logo.jpg" alt="Uncharted" class="login-logo" />
+    <h1>Admin Panel</h1>
+    <p class="login-sub">Sign in to manage the book and site content.</p>
+    <form id="login-form" class="login-form">
+      <label>Email
+        <input type="email" name="email" required autocomplete="username" />
+      </label>
+      <label>Password
+        <input type="password" name="password" required autocomplete="current-password" />
+      </label>
+      <p id="login-error" class="form-error"></p>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Sign In</button>
+    </form>
+    <a href="../index.html" class="back-to-site">← Back to site</a>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

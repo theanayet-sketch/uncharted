@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard — UNCHARTED Admin</title>
+<link rel="icon" href="../assets/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+
+<div id="dashboard">
+  <header class="admin-header">
+    <div class="wrap admin-header-row">
+      <img src="../assets/logo.jpg" alt="Uncharted" style="height:28px" />
+      <div class="admin-header-right">
+        <span id="admin-email" class="admin-email"></span>
+        <button id="logout-btn" class="btn btn-outline">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap admin-main">
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-target="panel-book">Book</button>
+      <button class="admin-tab" data-target="panel-settings">Website Settings</button>
+    </div>
+
+    <section id="panel-book" class="admin-panel active">
+      <h2>Manage Book</h2>
+      <p class="panel-sub">Currently only one published book is shown on the public site. Uploading here replaces its content.</p>
+
+      <form id="book-form" class="admin-form">
+        <div class="form-grid">
+          <div class="form-col">
+            <label>Title
+              <input type="text" name="title" required />
+            </label>
+            <label>Author
+              <input type="text" name="author" required />
+            </label>
+            <label>Page count
+              <input type="number" name="page_count" min="1" />
+            </label>
+            <label class="checkbox-row">
+              <input type="checkbox" name="is_published" checked />
+              Published (visible on public site)
+            </label>
+          </div>
+          <div class="form-col">
+            <label>Description
+              <textarea name="description" rows="5" required></textarea>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-col">
+            <label>Book cover image
+              <input type="file" id="cover-input" accept="image/*" />
+            </label>
+            <img id="cover-preview" class="preview-thumb" alt="Cover preview" />
+          </div>
+          <div class="form-col">
+            <label>Book PDF file
+              <input type="file" id="pdf-input" accept="application/pdf" />
+            </label>
+            <p class="file-note">Current file: <span id="current-pdf">none uploaded yet</span></p>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save Book</button>
+          <button type="button" id="delete-book-btn" class="btn btn-outline danger">Delete Book</button>
+          <span id="book-status" class="save-status"></span>
+        </div>
+      </form>
+    </section>
+
+    <section id="panel-settings" class="admin-panel">
+      <h2>Website Settings</h2>
+      <p class="panel-sub">Controls the site name, logo, hero text, about text and the Facebook link used across the whole site.</p>
+
+      <form id="settings-form" class="admin-form">
+        <div class="form-grid">
+          <div class="form-col">
+            <label>Site name
+              <input type="text" name="site_name" required />
+            </label>
+            <label>Hero title
+              <input type="text" name="hero_title" required />
+            </label>
+            <label>Facebook page URL
+              <input type="url" name="facebook_url" placeholder="https://facebook.com/yourpage" required />
+            </label>
+            <label>Logo
+              <input type="file" id="logo-input" accept="image/*" />
+            </label>
+            <img id="logo-preview" class="preview-thumb" style="background:#141210;padding:10px" alt="Logo preview" />
+          </div>
+          <div class="form-col">
+            <label>Hero description
+              <textarea name="hero_description" rows="3" required></textarea>
+            </label>
+            <label>About text
+              <textarea name="about_text" rows="5" required></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save Settings</button>
+          <span id="settings-status" class="save-status"></span>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>
